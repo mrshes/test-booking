@@ -33,8 +33,8 @@
 
 ### Страницы
 - Главная: /
-- Страница офиса: /{locale}/item/{slug}
-- Страница поиска: /{locale}/search
+- Страница офиса: /{locale}/office/{slug}
+- Страница поиска: /{locale}/office
 - Логин: /login
 - Личный кабинет: /profile
 - Регистрация пользователя: /registration
