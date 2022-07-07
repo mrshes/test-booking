@@ -9,10 +9,10 @@
 - MySql 8.0 (в качастве базы данных)
 
 ### Для запуска проекта нужно выполнить:
-1. composer install
-2. npm install
-3. php artisan migrate --seed
-4. npm run dev
+> 1. composer install
+> 2. npm install
+> 3. php artisan migrate --seed
+> 4. npm run dev
 
 # Текст задания:
 ### Используемый стек:
