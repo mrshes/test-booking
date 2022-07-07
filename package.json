@@ -25,6 +25,7 @@
         "@headlessui/vue": "^1.6.5",
         "@heroicons/vue": "^1.0.6",
         "@vitejs/plugin-vue": "^2.3.3",
-        "flowbite": "^1.4.7"
+        "flowbite": "^1.4.7",
+        "js-cookie": "^3.0.1"
     }
 }

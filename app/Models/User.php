@@ -6,7 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class User extends Authenticatable
 {
@@ -19,7 +21,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'work',
         'email',
+        'date_visit',
         'password',
     ];
 
@@ -41,4 +45,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return Attribute
+     */
+    protected function dateVisit(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => Carbon::parse($value)->format('d.m.Y H:i:s'),
+//            get: fn($value) => dd($value),
+        );
+    }
 }

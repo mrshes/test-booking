@@ -5,6 +5,8 @@ import BreezeInput from '@/Components/Input.vue';
 import BreezeLabel from '@/Components/Label.vue';
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import {computed, onMounted} from 'vue'
+import Cookie from 'js-cookie'
 
 const form = useForm({
     name: '',
@@ -12,13 +14,24 @@ const form = useForm({
     password: '',
     password_confirmation: '',
     terms: false,
+    date_visit:'',
+    work:'',
 });
 
 const submit = () => {
+    form.date_visit = Cookie.get('date_visit')
+
     form.post(route('register'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });
 };
+
+onMounted((context) => {
+    let currDate = new Date();
+    let dateFormat = currDate.toJSON().slice(0,10).replace(/-/g,'-') +' '+ currDate.toLocaleTimeString();
+    // Фиксируем первый заход на страницу
+    if (!Cookie.get('date_visit')) Cookie.set('date_visit', dateFormat)
+})
 </script>
 
 <template>
@@ -36,6 +49,10 @@ const submit = () => {
             <div class="mt-4">
                 <BreezeLabel for="email" value="Email" />
                 <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autocomplete="username" />
+            </div>
+            <div class="mt-4">
+                <BreezeLabel for="work" :value="__('Место работы')" />
+                <BreezeInput id="work" type="text" class="mt-1 block w-full" v-model="form.work" required autocomplete="work" />
             </div>
 
             <div class="mt-4">
