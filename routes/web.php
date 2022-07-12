@@ -20,7 +20,7 @@ require __DIR__ . '/auth.php';
         require __DIR__ . '/routes.php';
     });
 
-    require __DIR__ . '/routes.php';
+//    require __DIR__ . '/routes.php';
 
 
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('index')->whereIn('locale', ['en', 'ru']);

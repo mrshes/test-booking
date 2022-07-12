@@ -45,13 +45,12 @@ class HandleInertiaRequests extends Middleware
                 } else {
                     $locale = app()->getLocale();
                 }
-                URL::defaults(['locale' => $locale]);
             } else {
                 session()->put('locale', $locale);
             };
+            URL::defaults(['locale' => $locale ?? 'ru']);
             app()->setLocale($locale);
         }
-
         return array_merge(parent::share($request), [
             'locale' => function () {
                 return app()->getLocale();
