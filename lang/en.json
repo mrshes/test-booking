@@ -4,5 +4,12 @@
     "Фильтр": "Filters",
     "Предыдущая": "Previous",
     "Слудующая": "Next",
-    "Пароль": "Password"
+    "Пароль": "Password",
+    "Цена": "Price",
+    "Минимальная площадь": "Minimum area",
+    "Минимальное количество мест": "Minimum number of seats",
+    "Удобства": "Comfort",
+    "Выход": "Logout",
+    "Войти": "Login",
+    "Поиск": "Search"
 }
